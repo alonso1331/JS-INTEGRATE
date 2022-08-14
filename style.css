@@ -1,0 +1,129 @@
+/* .red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.a{
+    width: 300px;
+    height: 300px;
+    background: #3786ed;
+}
+
+.b{
+    width: 150px;
+    height: 150px;
+    background-color: olivedrab;
+} */
+
+:root{
+    --mouse-x;
+    --mouse-y;
+    --radius: 40px;
+    --factor: 1; /*（五）、製作球體光環效果 */
+    --scale;
+    --bound;
+}
+
+body{
+    background: rgb(131, 161, 71);
+    color: #efb60c;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+#box{
+    width: var(--bound);/*原先值140px;*/
+    height: var(--bound);/*原先值140px;*/
+    background: burlywood;
+    display: none; /*先不讓方塊跑出來 ,也就是一開始頁面上都沒有方塊 */
+    position: relative; /*讓方塊每次點擊後從新定位 */
+    z-index: -1;
+}
+
+/*4.6.JavaScript小遊戲 四、追蹤滑鼠軌跡 */
+#mouse-background{
+    background-color: #1f4191;
+}
+
+a:link{
+    color: #32c42f;
+}
+
+a:visited{
+    color: #efb60c;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    /* margin-top: 200px; */
+}
+
+
+.game01{
+    display: flex;
+    margin-top: 200px;
+    /* border: 3px ridge rgb(177, 237, 81); */
+    text-align: center;
+    justify-content: center;
+    margin-right: 50px;
+    transition: 0.5s;
+    
+}
+.game01:hover{
+    transform: translate(0px, -50px);
+}
+
+.game02{
+    display: flex;
+    margin-top: 200px;
+    /* border: 3px ridge rgb(177, 237, 81); */
+    text-align: center;
+    justify-content: center;
+    margin-left: 50px;
+    transition: 0.5s;
+}
+
+.game02:hover{
+    transform: translate(0px, -50px);
+}
+
+/* 球的大小  */
+#ball{
+    width:  var(--radius);
+    height:  var(--radius);
+    border-radius: 50%;
+    background-color: #FBD;
+    position: absolute;
+    transform: translate(calc(var(--mouse-x) * 1px - var(--radius) / 2), calc(var(--mouse-y) * 1px - var(--radius) / 2)); /* 讓球體的位置與滑鼠重疊  */
+}
+
+/* （五）、製作球體光環效果  */
+.halo{
+    width: var(--radius);
+    height: var(--radius);
+    border-radius: 50%;
+    background-color: #FBD;
+    opacity: 0.15;
+    position: absolute;
+    transform: scale(calc(var(--factor) * var(--scale)));
+}
+.halo:nth-of-type(1){
+    --factor:0.3;
+}
+.halo:nth-of-type(2){
+    --factor:0.5;
+}
+.halo:nth-of-type(3){
+    --factor:0.9;
+}
+
